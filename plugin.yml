@@ -1,0 +1,9 @@
+name: CREssentials
+main: com.craftrealms.CREssentials.CREssentials
+version: 1.0
+commands:
+   ban:
+      description: Ban a player from the server
+      usage: /<command> [player] [reason]
+      permission: cressentials.ban
+      permission-message: You don't have permission to use this command
