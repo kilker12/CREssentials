@@ -7,3 +7,13 @@ commands:
       usage: /<command> [player] [reason]
       permission: cressentials.ban
       permission-message: You don't have permission to use this command
+   setspawn:
+      description: Sets the world spawn where the player is standing
+      usage: /setspawn
+      permission: cressentials.setspawn
+      permission-message: You dont have permission to set the world spawn
+   spawn:
+      description: Teleports player to server spawn point
+      usage: /spawn
+      permission: cressentials.spawn
+      permission-message: You dont have permission to use this command

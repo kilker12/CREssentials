@@ -15,13 +15,18 @@ public class EventListener implements Listener {
 	}
 	@EventHandler
 	public void PlayerLogin(PlayerLoginEvent login) {
-		File f = new File("plugins/CREssentials/userdata/" + login.getPlayer().getName() + ".yml");
-		if (!f.exists()) {
-		    try {
-		        f.createNewFile();
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
+		File userfiles = new File(p.getDataFolder() + File.separator + "userdata" + File.separator + login.getPlayer().getName() + ".yml");
+		if(!userfiles.exists()){
+			try {
+				userfiles.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(p.tempbans.containsKey(login.getPlayer().getName())) {
+			login.setKickMessage("You are temporarily banned for " + p.tempbans.get(login.getPlayer().getName()));
+			login.setResult(null);
 		}
 	}
 }
