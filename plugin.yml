@@ -2,11 +2,6 @@ name: CREssentials
 main: com.craftrealms.CREssentials.CREssentials
 version: 1.0
 commands:
-   ban:
-      description: Ban a player from the server
-      usage: /<command> [player] [reason]
-      permission: cressentials.ban
-      permission-message: You don't have permission to use this command
    setspawn:
       description: Sets the world spawn where the player is standing
       usage: /setspawn
@@ -23,12 +18,68 @@ commands:
       permission: cressentials.tempban
       permission-message: You dont have permission to use this command
    tp:
+      aliases: teleport
       description: Teleports a player to another online player
       usage: /tp <player> <toplayer>
       permission: cressentials.tp
       permission-message: You dont have permission to use this command
    whisper:
+      aliases: [pm, msg]
       description: Send a private message to a player
       usage: /whisper <to> <message>
       permission: cressentials.pm
+      permission-message: You dont have permission to use this command
+   r:
+      aliases: reply
+      description: Reply to the last private message sent to you
+      usage: /r <message>
+      permission: cressentials.pm
+      permission-message: You dont have permission to use this command
+   heal:
+      description: Heals the player to full health
+      usage: /heal
+      permission: cressentials.heal
+      permission-message: You dont have permission to use this command
+   feed:
+      description: Restores player food level
+      usage: /feed
+      permission: cressentials.feed
+      permission-message: You dont have permission to use this command
+   burn:
+      description: Set the target player on fire
+      usage: /burn <player>
+      permission: cressentials.burn
+      permission-message: You dont have permission to use this command
+   clearinventory:
+      aliases: ci
+      description: Clears the player inventory of all items
+      usage: /clearinventory
+      permission: cressentials.clearinventory
+      permission-message: You dont have permission to use this command
+   exp:
+      aliases: xp
+      description: Show/set the experience of a player
+      usage: /exp {set/{playername}} {exp}
+      permission: cressentials.exp
+      permission-message: You dont have permission to use this command
+   fly:
+      description: Toggles player fly mode
+      usage: /fly <player>
+      permission: cressentials.fly
+      permission-message: You dont have permission to use this command
+   gamemode:
+      aliases: gm
+      description: Toggles player between creative and survival
+      usage: /gamemode
+      permission: cressentials.gamemode
+      permission-message: You dont have permission to use this command
+   getpos:
+      description: Reports a players current X, Y, and Z coordinates
+      usage: /getpos
+      permission: cressentials.getpos
+      permission-message: You dont have permission to use this command
+   god:
+      description: Makes a player invincible
+      usage: /god
+      permission: cressentials.god
       permission-message: You dont have permission to use this command

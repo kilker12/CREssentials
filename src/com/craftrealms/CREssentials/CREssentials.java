@@ -1,7 +1,9 @@
 package com.craftrealms.CREssentials;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import net.milkbowl.vault.permission.Permission;
 
@@ -18,6 +20,7 @@ public class CREssentials extends JavaPlugin {
 	public static Permission permission = null;
 	public HashMap<String, Integer> tempbans = new HashMap<String, Integer>();
 	public String whisperformat = null;
+	public List<String> gods = new ArrayList<String>();
 	
 	public void onEnable() {
 		saveDefaultConfig();
@@ -51,12 +54,20 @@ public class CREssentials extends JavaPlugin {
         new Thread(new Timer(this)).start();
         setupPermissions();
 		new EventListener(this);
-		getCommand("ban").setExecutor(new CommandBan(this));
 		getCommand("setspawn").setExecutor(new CommandSetSpawn(this));
 		getCommand("spawn").setExecutor(new CommandSpawn(this));
 		getCommand("tempban").setExecutor(new CommandTempban(this));
 		getCommand("tp").setExecutor(new CommandTp());
 		getCommand("whisper").setExecutor(new CommandWhisper(this));
+		getCommand("r").setExecutor(new CommandReply(this));
+		getCommand("clearinventory").setExecutor(new CommandClearInventory(this));
+		getCommand("feed").setExecutor(new CommandFeed(this));
+		getCommand("heal").setExecutor(new CommandHeal(this));
+		getCommand("burn").setExecutor(new CommandBurn(this));
+		getCommand("exp").setExecutor(new CommandExp(this));
+		getCommand("fly").setExecutor(new CommandFly(this));
+		getCommand("gamemode").setExecutor(new CommandGamemode(this));
+		getCommand("getpos").setExecutor(new CommandGetpos(this));
 	}
 	public void onDisable() {
 		

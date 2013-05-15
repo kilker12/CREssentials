@@ -27,6 +27,5 @@ public class Utils {
 	}
 	public static FileConfiguration GetPlayerDataFile(CREssentials p, OfflinePlayer offlinePlayer) {
 		return YamlConfiguration.loadConfiguration(new File(p.getDataFolder() + File.separator + "userdata" + File.separator + offlinePlayer.getName() + ".yml"));
-		
 	}
 }
