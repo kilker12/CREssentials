@@ -24,8 +24,8 @@ public class EventListener implements Listener {
 				e.printStackTrace();
 			}
 		}
-		if(p.tempbans.containsKey(login.getPlayer().getName())) {
-			login.setKickMessage("You are temporarily banned for " + p.tempbans.get(login.getPlayer().getName()));
+		if(p.tempbans.containsKey(login.getPlayer().getName().toLowerCase())) {
+			login.setKickMessage("You are temporarily banned for " + p.tempbans.get(login.getPlayer().getName().toLowerCase()) + " minutes!");
 			login.setResult(null);
 		}
 	}

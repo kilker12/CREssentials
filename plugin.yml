@@ -17,3 +17,18 @@ commands:
       usage: /spawn
       permission: cressentials.spawn
       permission-message: You dont have permission to use this command
+   tempban:
+      description: Temporarily ban a player for the given amount of time
+      usage: /tempban <player> <time>
+      permission: cressentials.tempban
+      permission-message: You dont have permission to use this command
+   tp:
+      description: Teleports a player to another online player
+      usage: /tp <player> <toplayer>
+      permission: cressentials.tp
+      permission-message: You dont have permission to use this command
+   whisper:
+      description: Send a private message to a player
+      usage: /whisper <to> <message>
+      permission: cressentials.pm
+      permission-message: You dont have permission to use this command

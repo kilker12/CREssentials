@@ -1,1 +1,2 @@
 version: '1.0'
+whisperformat: '[PM from %f]: %m'

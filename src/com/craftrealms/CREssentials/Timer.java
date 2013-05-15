@@ -1,7 +1,7 @@
 package com.craftrealms.CREssentials;
 
 public class Timer implements Runnable {
-	CREssentials p;
+	private CREssentials p;
 	public Timer(CREssentials plugin) {
 		p = plugin;
 	}
@@ -11,12 +11,14 @@ public class Timer implements Runnable {
 			for(String key : p.tempbans.keySet()) {
 				int old = p.tempbans.get(key);
 				p.tempbans.remove(key);
-				p.tempbans.put(key, old - 1);
+				if(!(old - 1 <= 0)) {
+					p.tempbans.put(key, old - 1);
+				}
 			}
+			Utils.SaveTempBans(p);
 			try {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

@@ -12,13 +12,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.craftrealms.Commands.CommandBan;
-import com.craftrealms.Commands.CommandSetSpawn;
-import com.craftrealms.Commands.CommandSpawn;
+import com.craftrealms.Commands.*;
 
 public class CREssentials extends JavaPlugin {
 	public static Permission permission = null;
 	public HashMap<String, Integer> tempbans = new HashMap<String, Integer>();
+	public String whisperformat = null;
 	
 	public void onEnable() {
 		saveDefaultConfig();
@@ -45,18 +44,19 @@ public class CREssentials extends JavaPlugin {
         FileConfiguration tempbansf = YamlConfiguration.loadConfiguration(tempbanfile);
         for(String key : tempbansf.getKeys(false)){
         	try {
-        		tempbans.put(key, tempbansf.getInt(key));
+        		tempbans.put(key.toLowerCase(), tempbansf.getInt(key));
         	} catch (Exception e) {}
         }
-        Timer timer = new Timer(this); 
-        Thread timerThread = new Thread(timer);
-        timerThread.start(); 
+        whisperformat = getConfig().getString("whisperformat");
+        new Thread(new Timer(this)).start();
         setupPermissions();
 		new EventListener(this);
 		getCommand("ban").setExecutor(new CommandBan(this));
 		getCommand("setspawn").setExecutor(new CommandSetSpawn(this));
 		getCommand("spawn").setExecutor(new CommandSpawn(this));
-		info("CREssentials has been enabled!");
+		getCommand("tempban").setExecutor(new CommandTempban(this));
+		getCommand("tp").setExecutor(new CommandTp());
+		getCommand("whisper").setExecutor(new CommandWhisper(this));
 	}
 	public void onDisable() {
 		
