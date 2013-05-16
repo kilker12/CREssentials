@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public class UserData {
+public class UserData extends Player {
 	private FileConfiguration file;
 	private String p;
 	
