@@ -27,11 +27,24 @@ public class UserData {
 	public String getLastPm() {
 		return file.getString("lastpm");
 	}
+	public boolean isBanned() {
+		return file.getBoolean("banned");
+	}
+	public int getTempBanTime() {
+		return file.getInt("bannedtime");
+	}
 	public boolean getFly() {
 		return file.getBoolean("fly");
 	}
 	public boolean inCreative() {
 		return file.getBoolean("creative");
+	}
+	public void setBanned(boolean b) {
+		file.set("banned", true);
+		file.set("bannedtime", 0);
+	}
+	public void setTempBanTime(int t) {
+		file.set("bannedtime", t);
 	}
 	public void setLastPm(String player) {
 		file.set("lastpm", player);
